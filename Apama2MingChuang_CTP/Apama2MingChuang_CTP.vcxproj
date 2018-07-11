@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -75,6 +75,10 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <ReferencePath>D:\apama-4.3-win32\bin;D:\apama-4.3-win32\lib;$(ReferencePath)</ReferencePath>
+    <LibraryPath>D:\apama-4.3-win32\bin;D:\apama-4.3-win32\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Project\C++\Apama2MingChuang_CTP\include;D:\Windows Kits\10\Include\10.0.17134.0\cppwinrt;D:\Windows Kits\10\Include\10.0.17134.0\winrt;D:\Windows Kits\10\Include\10.0.17134.0\um;D:\Windows Kits\10\Include\10.0.17134.0\ucrt;D:\Windows Kits\10\Include\10.0.17134.0\shared;D:\apama-4.3-win32\include;$(IncludePath)</IncludePath>
+    <LibraryWPath>D:\Windows Kits\10\Lib\10.0.17134.0\um\x64;D:\Windows Kits\10\Lib\10.0.17134.0\ucrt\x64;$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -108,6 +112,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>iafcore4.3.lib;apcommon4.3.lib;engine_client4.3.lib;thosttraderapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -147,10 +152,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\UserTraderSpi.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\source\UserTraderSpi.cpp" />
     <ClCompile Include="Apama2MingChuang_CTP.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
