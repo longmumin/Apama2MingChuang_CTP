@@ -1,5 +1,6 @@
+#include "stdafx.h"
 #include "UserTraderSpi.h"
-#include "McCtpApiDemoDlg.h"
+//#include "McCtpApiDemoDlg.h"
 #include <string>
 
 CUserTraderSpi::CUserTraderSpi(void)
@@ -25,7 +26,7 @@ void CUserTraderSpi:: OnFrontConnected()
 
     sprintf_s(m_szErrMsg, sizeof(MCQTTD_ERRMSG), "%s: %s,%s", GetCurTimeByChar(),"异步返回前置机注册完成 SPi OnFrontConnected", "异步返回成功");
 
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 
 }
     
@@ -34,7 +35,7 @@ void CUserTraderSpi:: OnFrontDisconnected(int nReason)
 {
     _snprintf_s(m_szErrMsg, sizeof(MCQTTD_ERRMSG), _TRUNCATE, "%s: %s", GetCurTimeByChar(), "连接前置机中断 SPi OnFrontDisconnected");
 
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
         
 ///登录请求响应
@@ -51,7 +52,7 @@ void CUserTraderSpi:: OnRspUserLogin(CThostFtdcRspUserLoginField *pRspUserLogin,
 
     //SetEvent(m_hEvent);
 
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 ///登出请求响应
@@ -74,7 +75,7 @@ void CUserTraderSpi:: OnRspOrderInsert(CThostFtdcInputOrderField *pInputOrder, C
         sprintf_s(m_szErrMsg, sizeof(MCQTTD_ERRMSG), "%s: %s,报单号%s,%s", GetCurTimeByChar(),"异步返回下单完成 SPi OnRspOrderInsert", pInputOrder->OrderRef,"异步返回成功");
 
     }
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 ///报单操作请求响应
@@ -91,7 +92,7 @@ void CUserTraderSpi:: OnRspOrderAction(CThostFtdcInputOrderActionField *pInputOr
         sprintf_s(m_szErrMsg, sizeof(MCQTTD_ERRMSG), "%s: %s,报单号%s,%s", GetCurTimeByChar(),"异步返回撤单完成 SPi OnRspOrderInsert",pInputOrderAction->OrderRef, "异步返回成功");
     }
 
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 
@@ -115,7 +116,7 @@ void CUserTraderSpi:: OnRspQryOrder(CThostFtdcOrderField *pOrder, CThostFtdcRspI
         _snprintf_s(m_szErrMsg, sizeof(m_szErrMsg), _TRUNCATE, "%s: 查询报单 报单号->%s, 订单状态->%s, 提交状态->%s, 委托数量->%d,剩余数量->%d", GetCurTimeByChar(), pOrder->OrderRef,
             szOrderStatus, szOrderSubmitStatus, pOrder->VolumeTotalOriginal, pOrder->VolumeTotal);
     }
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 ///请求查询成交响应
@@ -131,7 +132,7 @@ void CUserTraderSpi:: OnRspQryTrade(CThostFtdcTradeField *pTrade, CThostFtdcRspI
     {
         _snprintf_s(m_szErrMsg, sizeof(MCQTTD_ERRMSG), _TRUNCATE, "%s: 查询成交 报单号%s %s", GetCurTimeByChar(),pTrade->OrderRef, "查询成交成功");
     }
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 ///请求查询投资者持仓响应
@@ -147,7 +148,7 @@ void CUserTraderSpi:: OnRspQryInvestorPosition(CThostFtdcInvestorPositionField *
     {
         _snprintf_s(m_szErrMsg, sizeof(MCQTTD_ERRMSG), _TRUNCATE, "%s: 查询投资者持仓 投资者%s %s", GetCurTimeByChar(), pInvestorPosition->InvestorID, "查询投资者持仓成功");
     }
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 ///请求查询资金账户响应
@@ -163,7 +164,7 @@ void CUserTraderSpi:: OnRspQryTradingAccount(CThostFtdcTradingAccountField *pTra
     {
         _snprintf_s(m_szErrMsg, sizeof(MCQTTD_ERRMSG), _TRUNCATE, "%s: 查询资金账号 账号%s %s", GetCurTimeByChar(),pTradingAccount->AccountID, "查询资金账号成功");
     }
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 
@@ -179,7 +180,7 @@ void CUserTraderSpi::OnRspQryInvestor(CThostFtdcInvestorField *pInvestor, CThost
     {
         _snprintf_s(m_szErrMsg, sizeof(MCQTTD_ERRMSG), _TRUNCATE, "%s: 查询InvestorID 账号%s %s", GetCurTimeByChar(),pInvestor->InvestorID, "查询资金账号成功");
     }
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 
@@ -197,7 +198,7 @@ void CUserTraderSpi:: OnRspSettlementInfoConfirm(CThostFtdcSettlementInfoConfirm
 
     }
     //SetEvent(m_hEvent);
-    g_pclDlg->ShowSpiMsg(m_szErrMsg);
+    //g_pclDlg->ShowSpiMsg(m_szErrMsg);
     return;
 }
 
@@ -217,7 +218,7 @@ void CUserTraderSpi::OnRspQrySettlementInfoConfirm(CThostFtdcSettlementInfoConfi
 
     m_bIsSettlement = true;
 
-    g_pclDlg->ShowSpiMsg(m_szErrMsg);
+    //g_pclDlg->ShowSpiMsg(m_szErrMsg);
 
     return;
 }
@@ -235,7 +236,7 @@ void CUserTraderSpi::OnRspQryExchange(CThostFtdcExchangeField *pExchange, CThost
     {
         _snprintf_s(m_szErrMsg, sizeof(MCQTTD_ERRMSG), _TRUNCATE, "%s: 查询交易所成功: ExchangeID= %s, ExchangeName = %s, ExchangeProperty = %c", GetCurTimeByChar(), pExchange->ExchangeID, pExchange->ExchangeName, pExchange->ExchangeProperty);
     }
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 ///请求查询合约结果响应
@@ -263,7 +264,7 @@ void CUserTraderSpi::OnRspQryInstrument(CThostFtdcInstrumentField *pInstrument, 
                     pInstrument->MaxMarketOrderVolume, 
                     pInstrument->MinMarketOrderVolume);
     }
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 ///请求查询合约保证金率响应
@@ -286,7 +287,7 @@ void CUserTraderSpi::OnRspQryInstrumentMarginRate(CThostFtdcInstrumentMarginRate
                     pInstrumentMarginRate->InvestorID, 
                     pInstrumentMarginRate->HedgeFlag);
     }
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 ///请求查询合约手续费率响应
@@ -314,7 +315,7 @@ void CUserTraderSpi::OnRspQryInstrumentCommissionRate(CThostFtdcInstrumentCommis
                     pInstrumentCommissionRate->CloseTodayRatioByMoney, 
                     pInstrumentCommissionRate->CloseTodayRatioByVolume);
     }
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 ///请求查询经纪公司交易参数
@@ -330,7 +331,7 @@ void CUserTraderSpi::OnRspQryBrokerTradingParams(CThostFtdcBrokerTradingParamsFi
     {
         _snprintf_s(m_szErrMsg, sizeof(MCQTTD_ERRMSG), _TRUNCATE, "%s: 查询经纪公司交易参数成功: InvestorID = %s, MarginPriceType = %c", GetCurTimeByChar(), pBrokerTradingParams->InvestorID, pBrokerTradingParams->MarginPriceType);
     }
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 ///请求查询经纪公司交易算法
@@ -346,7 +347,7 @@ void CUserTraderSpi::OnRspQryBrokerTradingAlgos(CThostFtdcBrokerTradingAlgosFiel
     {
         _snprintf_s(m_szErrMsg, sizeof(MCQTTD_ERRMSG), _TRUNCATE, "%s: 查询经纪公司交易算法成功: ExchangeID = %s, InstrumentID = %s", GetCurTimeByChar(), pBrokerTradingAlgos->ExchangeID, pBrokerTradingAlgos->InstrumentID);
     }
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 ///查询保证金监管系统经纪公司资金账户密钥响应
@@ -369,7 +370,7 @@ void CUserTraderSpi::OnRspQryCFMMCTradingAccountKey(CThostFtdcCFMMCTradingAccoun
                     pCFMMCTradingAccountKey->KeyID, 
                     pCFMMCTradingAccountKey->CurrentKey);
     }
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 ///错误应答
@@ -381,7 +382,7 @@ void CUserTraderSpi:: OnRspError(CThostFtdcRspInfoField *pRspInfo, int nRequestI
     }
 
     _snprintf_s(m_szErrMsg, sizeof(MCQTTD_ERRMSG), _TRUNCATE, "%s错误信息%s", GetCurTimeByChar(), pRspInfo->ErrorMsg);
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -398,6 +399,7 @@ char* const CUserTraderSpi::GetCurTimeByChar(void)
     //_snprintf_s((char*)m_szCurLogTime, sizeof(m_szCurLogTime), _TRUNCATE, "[%02d:%02d:%02d:%03d]", hstTmLocal.wHour, hstTmLocal.wMinute, hstTmLocal.wSecond, hstTmLocal.wMilliseconds);
 
     //return (char*)m_szCurLogTime;
+	return NULL;
 }
 
 void CUserTraderSpi::OnRtnOrder(CThostFtdcOrderField *pOrder)
@@ -424,7 +426,7 @@ void CUserTraderSpi::OnRtnOrder(CThostFtdcOrderField *pOrder)
             szOrderStatus, szOrderSubmitStatus, pOrder->VolumeTotal, pOrder->StatusMsg);
     }
 
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 void CUserTraderSpi::OnRtnTrade(CThostFtdcTradeField *pTrade)
@@ -438,7 +440,7 @@ void CUserTraderSpi::OnRtnTrade(CThostFtdcTradeField *pTrade)
                                                   GetCurTimeByChar(),pTrade->OrderRef,
                                                   "期货订单已成交",pTrade->Volume,
                                                   pTrade->Price);
-    g_pclDlg->ShowListboxMsg(m_szErrMsg);
+    //g_pclDlg->ShowListboxMsg(m_szErrMsg);
 }
 
 ///报单录入错误回报
@@ -454,7 +456,7 @@ void CUserTraderSpi::OnErrRtnOrderInsert(CThostFtdcInputOrderField *pInputOrder,
         _snprintf_s(m_szErrMsg, sizeof(MCQTTD_ERRMSG), _TRUNCATE, "%s: 异步返回 报单号->%s, 错误信息->%s, 详细信息->%s", 
                                                     GetCurTimeByChar(),pInputOrder->OrderRef,
                                                     "无效的期货订单",pRspInfo->ErrorMsg);
-        g_pclDlg->ShowListboxMsg(m_szErrMsg);
+        //g_pclDlg->ShowListboxMsg(m_szErrMsg);
     }
 }
 

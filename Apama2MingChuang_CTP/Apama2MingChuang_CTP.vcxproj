@@ -23,7 +23,7 @@
     <ProjectGuid>{DD58A31F-7C1D-448B-A036-18E599EE15EF}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Apama2MingChuangCTP</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -72,11 +72,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <ReferencePath>D:\Project\C++\Apama2MingChuang_CTP\include;$(ReferencePath)</ReferencePath>
+    <LibraryPath>D:\Project\C++\Apama2MingChuang_CTP\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Project\C++\Apama2MingChuang_CTP\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <ReferencePath>D:\apama-4.3-win32\bin;D:\apama-4.3-win32\lib;$(ReferencePath)</ReferencePath>
-    <LibraryPath>D:\apama-4.3-win32\bin;D:\apama-4.3-win32\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\Project\C++\Apama2MingChuang_CTP\lib;D:\apama-4.3-win32\bin;D:\apama-4.3-win32\lib;$(LibraryPath)</LibraryPath>
     <IncludePath>D:\Project\C++\Apama2MingChuang_CTP\include;D:\Windows Kits\10\Include\10.0.17134.0\cppwinrt;D:\Windows Kits\10\Include\10.0.17134.0\winrt;D:\Windows Kits\10\Include\10.0.17134.0\um;D:\Windows Kits\10\Include\10.0.17134.0\ucrt;D:\Windows Kits\10\Include\10.0.17134.0\shared;D:\apama-4.3-win32\include;$(IncludePath)</IncludePath>
     <LibraryWPath>D:\Windows Kits\10\Lib\10.0.17134.0\um\x64;D:\Windows Kits\10\Lib\10.0.17134.0\ucrt\x64;$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
@@ -98,6 +101,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>thosttraderapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -113,6 +117,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>iafcore4.3.lib;apcommon4.3.lib;engine_client4.3.lib;thosttraderapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
