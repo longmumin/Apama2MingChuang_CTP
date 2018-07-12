@@ -2,6 +2,9 @@
 #include "UserTraderSpi.h"
 //#include "McCtpApiDemoDlg.h"
 #include <string>
+#include <iostream>
+
+using namespace std;
 
 CUserTraderSpi::CUserTraderSpi(void)
 {
@@ -23,7 +26,7 @@ void CUserTraderSpi:: OnFrontConnected()
 {
     //设置
     //SetEvent(m_hEvent);
-
+	cout << "异步返回前置机注册完成 SPi OnFrontConnected" << endl;
     sprintf_s(m_szErrMsg, sizeof(MCQTTD_ERRMSG), "%s: %s,%s", GetCurTimeByChar(),"异步返回前置机注册完成 SPi OnFrontConnected", "异步返回成功");
 
     //g_pclDlg->ShowListboxMsg(m_szErrMsg);
